@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const ProductsPage = () => {
     const products = useSelector((state) => state.products.products)
-    const cards = useSelector((state) => state.cards.cards)
+    const cartProducts = useSelector((state) => state.cart.products)
     const dispatch = useDispatch()
 
     const addToBasket = (id, name, price) => {
-        dispatch({ type: 'BASKET_COUNTER' })
-        dispatch({ type: 'ADD_CARD', payload: { id, name, price } })
+        dispatch({ type: 'ADD_PRODUCT', payload: { id, name, price } })
     }
     return (
         <div>
@@ -24,11 +23,13 @@ const ProductsPage = () => {
                                     product.price,
                                 )
                             }
-                            disabled={cards
-                                .map((card) => card.id)
+                            disabled={cartProducts
+                                .map((product) => product.id)
                                 .includes(product._id)}
                         >
-                            {cards.map((card) => card.id).includes(product._id)
+                            {cartProducts
+                                .map((product) => product.id)
+                                .includes(product._id)
                                 ? 'in basket'
                                 : 'buy'}
                         </button>

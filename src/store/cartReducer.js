@@ -1,18 +1,18 @@
 const defaultState = {
-    cards: [],
+    products: [],
 }
 
-export const cardReducer = (state = defaultState, action) => {
+export const cartReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case 'ADD_CARD':
-            const newCard = {
+        case 'ADD_PRODUCT':
+            const addedProduct = {
                 id: action.payload.id,
                 name: action.payload.name,
                 price: action.payload.price,
             }
             return {
                 ...state,
-                cards: [...state.cards, newCard],
+                products: [...state.products, addedProduct],
             }
         default:
             return state

@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const BasketPage = () => {
-    const basket = useSelector((state) => state.cards.cards)
-    console.log(basket)
+    const cartProducts = useSelector((state) => state.cart.products)
+
     return (
         <div>
             <ul className="products">
-                {basket.map((item) => (
+                {cartProducts.map((item) => (
                     <li key={item.id}>
                         {item.name} - {item.price}
                     </li>

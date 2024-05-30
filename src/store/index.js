@@ -1,10 +1,10 @@
 import { productsReducer } from './productsReducer'
-import { cardReducer } from './cardReducer'
+import { cartReducer } from './cartReducer'
 import { legacy_createStore as createStore, combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
     products: productsReducer,
-    cards: cardReducer,
+    cart: cartReducer,
 })
 
 export const store = createStore(rootReducer)

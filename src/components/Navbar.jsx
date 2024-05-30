@@ -7,7 +7,8 @@ const NavBar = () => {
         return isActive ? 'red' : ''
     }
 
-    const counter = useSelector((state) => state.products.counter)
+    const cartProducts = useSelector((state) => state.cart.products)
+
     return (
         <nav>
             <ul>
@@ -18,7 +19,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink to="/basket" className={activeLinkClass}>
-                        basket {counter}
+                        basket {cartProducts.length}
                     </NavLink>
                 </li>
             </ul>
