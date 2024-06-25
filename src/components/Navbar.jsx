@@ -1,30 +1,28 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
-    const activeLinkClass = ({ isActive }) => {
-        return isActive ? 'red' : ''
-    }
+  const activeLinkClass = ({ isActive }) => isActive ? 'red' : '';
 
-    const cartProducts = useSelector((state) => state.cart.products)
+  const cartProducts = useSelector((state) => state.cart.products);
 
-    return (
-        <nav>
-            <ul>
-                <li>
-                    <NavLink to="/" className={activeLinkClass}>
+  return (
+    <nav>
+      <ul>
+        <li>
+          <NavLink to="/" className={activeLinkClass}>
                         Products
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/basket" className={activeLinkClass}>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/basket" className={activeLinkClass}>
                         basket {cartProducts.length}
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
-    )
-}
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-export default NavBar
+export default NavBar;
